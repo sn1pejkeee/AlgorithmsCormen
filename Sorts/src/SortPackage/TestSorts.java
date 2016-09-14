@@ -8,7 +8,7 @@ public class TestSorts {
 		//System.out.println("Not sorted array: " + Arrays.toString(testArray1));
 		//System.out.println("Insertion sorted array: " + Arrays.toString(SomeSorts.InsertionSort(testArray1)));
 		//System.out.println("Selection sorted array: " + Arrays.toString(SomeSorts.SelectionSort(testArray1)));
-		
+		//fhagahaff
 		ArrayStorage a = new ArrayStorage();
 		a.print();
 		
