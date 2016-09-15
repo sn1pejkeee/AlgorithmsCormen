@@ -47,6 +47,13 @@ public class TestSorts {
 		System.out.println("Heap sort: ");
 		SomeSorts.HeapSort(a);
 		a.print();
+		
+		a.setArray(testingArray);
+		a.nulify();
+		
+		System.out.println("Quick sort: ");
+		SomeSorts.QuickSort(a);
+		a.print();
 
 	}
 

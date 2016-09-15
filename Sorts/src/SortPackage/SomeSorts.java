@@ -120,7 +120,7 @@ public class SomeSorts {
 		return 2 * (i + 1);
 	}
 	
-	public static void MaxHeapify(ArrayStorage as, int i) {
+	private static void MaxHeapify(ArrayStorage as, int i) {
 		int[] array = as.getArray();
 		int l = Left(i);
 		int r = Right(i);
@@ -148,7 +148,7 @@ public class SomeSorts {
 		}
 	}
 	
-	public static void BuildMaxHeap(ArrayStorage as) {
+	private static void BuildMaxHeap(ArrayStorage as) {
 		as.setSize(as.getArray().length);
 		for (int i = as.getArray().length / 2; i >= 0; i--)
 			MaxHeapify(as, i);
@@ -168,5 +168,40 @@ public class SomeSorts {
 			MaxHeapify(as, 0);
 			}
 		
+	}
+	
+	private static int Partition (ArrayStorage as, int p, int r) {
+		int[] array = as.getArray();
+		int x = array[r];
+		int i = p - 1;
+		int temp;
+		for (int j = p; j <= r - 1; j++) { 
+			as.increaseCompares();
+			if (array[j] <= x) {
+				as.increaseExchanges();
+				i++;
+				temp = array[i];
+				array[i] = array[j];
+				array[j] = temp;
+			}
+		}
+		as.increaseExchanges();
+		temp = array[r];
+		array[r] = array[i + 1];
+		array[i + 1] = temp;
+		as.setArray(array);
+		return i + 1;
+	}
+	
+	private static void QuickSortArray (ArrayStorage as, int p, int r) {
+		if (p < r) {
+			int q = Partition(as, p, r);
+			QuickSortArray(as, p, q - 1);
+			QuickSortArray(as, q + 1, r);
+		}
+	}
+	
+	public static void QuickSort(ArrayStorage as) {
+		QuickSortArray(as, 0, as.getArray().length - 1);
 	}
 }
